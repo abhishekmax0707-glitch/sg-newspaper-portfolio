@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Cart</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+<h1>Your Cart</h1>
+</header>
+
+<section>
+
+<h2 id="cartProduct"></h2>
+
+<p id="cartPrice"></p>
+
+<a href="checkout.html">
+<button onclick="beginCheckout()">Proceed To Checkout</button>
+</a>
+
+</section>
+
+<script src="script.js"></script>
+
+<script>
+
+let name=localStorage.getItem("cartName");
+let price=localStorage.getItem("cartPrice");
+
+document.getElementById("cartProduct").innerText=name;
+document.getElementById("cartPrice").innerText="Price ₹"+price;
+
+window.dataLayer = window.dataLayer || [];
+
+dataLayer.push({
+event:"view_cart"
+});
+
+function beginCheckout(){
+
+dataLayer.push({
+event:"begin_checkout",
+value:price
+});
+
+}
+
+</script>
+
+</body>
+</html>

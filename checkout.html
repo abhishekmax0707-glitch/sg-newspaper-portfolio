@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Checkout</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+<h1>Checkout</h1>
+</header>
+
+<section>
+
+<form onsubmit="purchase(); return false;">
+
+<input placeholder="Name" required>
+<br><br>
+
+<input placeholder="Address" required>
+<br><br>
+
+<input placeholder="Phone" required>
+
+<br><br>
+
+<button type="submit">Place Order</button>
+
+</form>
+
+</section>
+
+<script src="script.js"></script>
+
+<script>
+
+function purchase(){
+
+let price=localStorage.getItem("cartPrice");
+
+window.dataLayer = window.dataLayer || [];
+
+dataLayer.push({
+event:"purchase",
+transaction_value:price
+});
+
+window.location="thankyou.html";
+
+}
+
+</script>
+
+</body>
+</html>

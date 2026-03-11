@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Product Detail</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+<h1>Newspaper Details</h1>
+</header>
+
+<section>
+
+<h2 id="productName"></h2>
+
+<p id="productPrice"></p>
+
+<button onclick="addToCart()">Add To Cart</button>
+
+<br><br>
+
+<a href="cart.html">
+<button>Go To Cart</button>
+</a>
+
+</section>
+
+<script src="script.js"></script>
+
+<script>
+
+let name=localStorage.getItem("productName");
+let price=localStorage.getItem("productPrice");
+
+document.getElementById("productName").innerText=name;
+document.getElementById("productPrice").innerText="Price ₹"+price;
+
+window.dataLayer = window.dataLayer || [];
+
+dataLayer.push({
+event:"view_item",
+item_name:name,
+price:price
+});
+
+</script>
+
+</body>
+</html>
